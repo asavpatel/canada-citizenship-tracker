@@ -159,7 +159,8 @@ def send_email(subject, body, to_email):
 def track_status_changes(user_profiles):
     template_file = 'email_template.html'
 
-    for username, password, receiver_email in user_profiles:
+    for profile in user_profiles:
+        username, password, receiver_email = profile['username'], profile['password'], profile['receiver_email']
         access_token = get_access_token(username, password)
         if not access_token:
             continue
@@ -180,7 +181,7 @@ def track_status_changes(user_profiles):
                 previous_data = json.load(f)
                 last_updated_time = previous_data.get('lastUpdatedTime')
         except FileNotFoundError:
-            previous_data = None
+            previous_data = {}
             last_updated_time = None
 
         # Check if the application has been updated since last check
