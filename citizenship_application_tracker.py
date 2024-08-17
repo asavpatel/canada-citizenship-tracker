@@ -1,6 +1,7 @@
 import json
 import logging
 from datetime import datetime
+import time
 
 import requests
 import schedule
@@ -21,7 +22,7 @@ SENDGRID_API_KEY = config['SENDGRID_API_KEY']
 EMAIL_SENDER = config['EMAIL_SENDER']
 
 user_profiles = config['user_profiles']
-schedule_time = config['schedule_time_mins']
+schedule_time = int(config['schedule_time_mins'])
 
 
 # Fetch the access token
@@ -220,3 +221,6 @@ schedule.every(schedule_time).minutes.do(job)
 
 if __name__ == '__main__':
     job()
+    while True:
+        schedule.run_pending()
+        time.sleep(schedule_time * 60)
