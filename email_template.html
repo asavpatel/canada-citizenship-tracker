@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Status Update</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            color: #4CAF50;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .new-entry {
+            background-color: #d9f2ff;
+        }
+        .changes {
+            color: #1d7ce9;
+        }
+    </style>
+</head>
+<body>
+    <h1>Application Update</h1>
+    <p><strong>Application Number:</strong> {{ application_number }}</p>
+    <p><strong>Status:</strong> {{ status }}</p>
+    <p><strong>Last Updated Time:</strong> {{ last_updated_time }}</p>
+
+    <h2>Activities</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Activity</th>
+                <th>Previous Status</th>
+                <th>Current Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for activity in activities %}
+            <tr>
+                <td>{{ activity.activity }}</td>
+                <td>{{ activity.previous_status }}</td>
+                <td>{{ activity.current_status }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h2>History</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Time</th>
+                <th>Event</th>
+                <th>Details</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for history_item in history %}
+            <tr class="{% if history_item.is_new %}new-entry{% endif %}">
+                <td>{{ history_item.time }}</td>
+                <td>{{ history_item.title }}</td>
+                <td>{{ history_item.details }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h2>Changes</h2>
+    <ul class="changes">
+        {% if changes %}
+            {% for change in changes %}
+            <li>{{ change }}</li>
+            {% endfor %}
+        {% else %}
+        <li>No changes since last check.</li>
+        {% endif %}
+    </ul>
+</body>
+</html>

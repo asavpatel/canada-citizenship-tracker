@@ -1,0 +1,12 @@
+{
+  "SENDGRID_API_KEY": "YOUR_SENDGRID_API_KEY",
+  "EMAIL_SENDER": "sender@gmail.com",
+  "user_profiles": [
+    {
+      "username": "123456789",
+      "password": "P@ssw0rd",
+      "receiver_email": "receiver@gmail.com"
+    }
+  ],
+  "schedule_time_mins": 60
+}
