@@ -40,6 +40,9 @@ docker build -t citizenship_tracker -f Dockerfile .
 docker run --name citizenship_tracker -itd citizenship_tracker
 ```
 
+### Sample Email Notification :
+![sample_notification.png](sample_notification.png)
+
 ## Future Enhancements :
 
 - Reuse auth token if session is not expired.
