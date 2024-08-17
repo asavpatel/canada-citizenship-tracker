@@ -18,8 +18,8 @@ with open('config.json', 'r') as f:
 AUTH_URL = 'https://cognito-idp.ca-central-1.amazonaws.com/'
 PROFILE_URL = 'https://api.tracker-suivi.apps.cic.gc.ca/user'
 CLIENT_ID = 'mtnf1qn9p739g2v8aij2anpju'
-SENDGRID_API_KEY = config['SENDGRID_API_KEY']
-EMAIL_SENDER = config['EMAIL_SENDER']
+SENDGRID_API_KEY = config['sendgrid_api_key']
+EMAIL_SENDER = config['sender_email']
 
 user_profiles = config['user_profiles']
 schedule_time = int(config['schedule_time_mins'])

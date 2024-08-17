@@ -1,6 +1,6 @@
 {
-  "SENDGRID_API_KEY": "YOUR_SENDGRID_API_KEY",
-  "EMAIL_SENDER": "sender@gmail.com",
+  "sendgrid_api_key": "YOUR_SENDGRID_API_KEY",
+  "sender_email": "sender@gmail.com",
   "user_profiles": [
     {
       "username": "123456789",
