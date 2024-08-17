@@ -37,7 +37,7 @@ Build a docker image :
 
 ```shell
 docker build -t citizenship_tracker -f Dockerfile .
-docker run -itd citizenship_tracker
+docker run --name citizenship_tracker -itd citizenship_tracker
 ```
 
 ## Future Enhancements :
