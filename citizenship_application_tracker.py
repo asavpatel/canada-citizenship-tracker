@@ -21,7 +21,7 @@ SENDGRID_API_KEY = config['SENDGRID_API_KEY']
 EMAIL_SENDER = config['EMAIL_SENDER']
 
 user_profiles = config['user_profiles']
-schedule_time = config['schedule_time']
+schedule_time = config['schedule_time_mins']
 
 
 # Fetch the access token
